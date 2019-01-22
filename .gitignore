@@ -1,0 +1,11 @@
+.DS_Store
+target/
+*.swp
+/bin
+node_modules/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+

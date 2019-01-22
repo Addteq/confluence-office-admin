@@ -1,0 +1,102 @@
+#requireResource("com.addteq.officeadmin.floorplan:floorplan-resources3")
+#set($imgHtml = $img)
+$imgHtml
+<div id="noteform" style="display:none;">
+    <div class="contents" style="width:inherit">
+        <form id="allotAreaForm" class="aui" method="post" action="/plugins/floorplan/allotArea.action">
+            <fieldset class="add-note-fieldset">
+                <div class="dialog-header">
+                    <div class="title">
+                        <h2>Allot Area</h2>
+                    </div>
+                </div>
+                <input name="created" id="createdTime" type="hidden" value="" />
+                <input name="type" id="allotedAreaType" type="hidden" value="" />
+                <input name="x1" id="allotedAreaCordX" type="hidden" value="" />
+                <input name="y1" id="allotedAreaCordY" type="hidden" value="" />
+                <input name="height" id="allotedAreaHeight" type="hidden" value="" />
+                <input name="width"  id="allotedAreaWidth" type="hidden" value="" />
+                <input name="actionAlert" id="notePrimaryLocation" type="hidden" value="primaryOrNotPrimary">
+
+                ## just to display what user selected
+                <div id="defaultAvatarSize" style="display:none;" > The default size of the Avatar for this Floorplan is 16px * 16px. You can Change this by resizing. Minimum can be 1px * 1px and Maximum can be 100px * 100px.
+                    <div id="spinnerDiv" style="margin-top:5%;"> <b>Select Size:</b>
+                            <span> <input type="number" id="selectedDefaultSize" class="avatarSpinner text" style="width:55px" step="1" min="1" max="100" value="16" ></span> 
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label id="allotedAreaTextboxIdLabel" for="allotedAreaTextboxId"> Name* </label>
+                    <input id="allotedAreaTextboxId" class="autocomplete-user text" data-template="{username}" />
+                    <div id ="floorplanUserFillContainer" class="aui-dd-parent autocomplete autocomplete-user-or-group-target resize-to-input" style="width: 250px; z-index: 10002;">
+                        <div id="floorplanUserFill" class="aui-dropdown2 aui-style-default" style="display:none;position:absolute;width:100%;">
+                            <ul class="aui-list-truncate"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label id ="seatNoLabel" for="seatNoForAllotArea">Seat Number</label>
+                    <input type="text" class="text" id="seatNoForAllotArea" name='seatNo' class="allotedAreaTextbox" maxlength="255" />
+                </div>
+
+                <div class="field-group">
+                    <label id = "resourceUrlForAllotAreaLabel" for='resourceUrlForAllotArea'>URL</label>
+                    <input type='text' class='text' placeholder='http://www.example.com' class='resourceUrlTextbox' name='resourceUrl' id='resourceUrlForAllotArea' maxlength='255' />
+                </div>    
+
+            </fieldset>
+            <fieldset class="hidden parameters">
+                ## actual value of note which is sent in request
+                <input type="hidden"  name="note" id="allotedAreaTextboxHiddenId"/>
+                <input type="hidden" name="pageId" value="$action.pageId" />
+                <input type="hidden" name="checksum" value="$checksum" />
+                <input type="hidden" name="showAllRecords" value=$showAllRecords />
+                <input type="hidden" id="isEditAllowed" value="$editAllowed" />
+                <input type="hidden" name="macroId" value="$macroId" />
+                <input type="hidden" name="macroName" value="$macroName" />
+                <input type="hidden" id="viewportwidth" name="viewportwidth" value="$viewportwidth" />
+                <input type="hidden" name="showLabel" id="checkboxShowLabelHiddenId"/>
+            </fieldset> 
+
+            <div class="submit buttons-container" style="padding-left:100px;">
+                <input type="button" class="button" value="Submit" id="allotAreaFormSubmitBtn"/> 
+                <input type="button" class="button" value="Cancel" id="cancelnote" />
+                <input type="button" class="button" value="No, Thanks" id="noThanksBtn" style="display:none;" /> 
+                <label><span id="roomspan"><input id="checkbox_room" type="checkbox" class="s9-check-input checkbox">Resource</input></span></label>
+                <label><span id="showLabel"><input id="checkbox_showLabel" type="checkbox" class="s9-check-input checkbox" checked>Show Label</input></span></label>
+            </div>
+        </form>
+        <div class="arrow aui-css-arrow" style="left:20px"></div>
+    </div>
+</div>
+
+
+<section style="display:none"" id="import-floorplan-dialog" class="aui-dialog2 aui-dialog2-medium" role="dialog">
+
+    <header class="aui-dialog2-header">
+
+        <h2 class="aui-dialog2-header-main">Import FloorPlan Tags</h2>
+
+        <a class="aui-dialog2-header-close">
+            <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Close</span>
+        </a>
+    </header>
+
+    <div class="aui-dialog2-content">
+	<form id="import-floorplan-form" method="post" enctype="multipart/form-data">
+	<label for="exportFile">Upload File</label>
+	<input type="file" name="exportFile" id="exportFile" />
+
+	</form>
+	
+    </div>
+
+    <footer class="aui-dialog2-footer">
+
+        <div class="aui-dialog2-footer-actions">
+            <button class="aui-button aui-button-primary" id="import-submit-button">Import</button>
+            <button class="aui-button aui-button-link" id="import-cancel-button">Close</button>
+        </div>
+
+    </footer>
+</section>

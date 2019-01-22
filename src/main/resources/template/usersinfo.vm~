@@ -1,0 +1,55 @@
+## Macro title: Last Login
+## Macro has a body: N
+## Body processing: Selected body processing option
+## Output: Selected output option
+##
+## Developed by: Andrew Frayling
+## Modified by: Michael Seager [Atlassian Support]
+## Date created: 11/02/2012
+## Installed by: <your name>
+## Macro to display the last login date of users who have access to the current space
+## @noparams
+ 
+#set($containerManagerClass = $content.class.forName('com.atlassian.spring.container.ContainerManager'))
+#set($getInstanceMethod = $containerManagerClass.getDeclaredMethod('getInstance',null))
+#set($containerManager = $getInstanceMethod.invoke(null,null))
+#set($containerContext = $containerManager.containerContext)
+#set($userDetailsManager = $containerContext.getComponent('userDetailsManager'))
+#set($loginManager = $containerContext.getComponent('loginManager'))
+#set($users = $userAccessor.getUsers())
+ 
+<table>
+ 
+#set($count = 0)
+ 
+#foreach($user in $users)
+  ## list the last login date of users who can view the current space
+ 
+    <tr>
+      <td>$user.name</td>
+      <td>$user.fullName</td>
+      <td>$user.email</td>
+      <td>
+		#set($tLocation = $userDetailsManager.getStringProperty('arosales', 'location'))    
+		#if($tLocation!="")
+		   $tLocation   
+		#end
+		#set($tLocation = "")  
+      </td>
+      <td>
+		#set($tDepartment = $userDetailsManager.getStringProperty('arosales', 'department'))
+		#if($tDepartment!="")
+			$tDepartment
+		#end
+		#set($tDepartment = "")
+	  </td>
+      <td>
+		#set($tPhone = $userDetailsManager.getStringProperty('arosales', 'phone'))
+		#if($tPhone!="")
+			$tPhone
+		#end
+		#set($tPhone = "")
+      </td> 
+    </tr>
+#end
+</table>

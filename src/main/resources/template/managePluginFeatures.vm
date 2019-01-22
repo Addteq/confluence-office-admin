@@ -1,0 +1,54 @@
+## Creates a view to show possible settings for the Office Admin plugin which
+## includes enable/disable modules.
+#requireResourcesForContext("com.addteq.officeadmin.admin.manage-module-resources")
+<html lang="en">
+  <head> 
+    <meta charset="utf-8">
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    #if($isUserProfileEnabled)
+        #set( $enableOrDisable = "Enabled" )
+        #set( $checkedHtml = "checked" )
+    #else
+        #set( $enableOrDisable = "Disabled" )
+        #set( $checkedHtml = "" )
+    #end
+  </head>
+<body>
+#if ($action.hasActionErrors())
+<ul>
+    #foreach ($error in $action.getActionErrors())
+        <div class="aui-message aui-message-error">
+            <p class="title">
+                <strong>Error!</strong>
+            </p>
+            <p>$error</p>
+        </div>
+    #end
+</ul>
+
+#else
+
+<form class="aui" method="POST" action="enableOrDisableUserProfile.action" id="enableOrDisableUserProfile">
+    <input name="isUserProfileEnabled" type="hidden" value = "$isUserProfileEnabled">
+    <div class="field-group" style="display:inline-block;text-align:center;width:auto;">
+        <aui-label for="userProfileModule" style="width:auto;">
+            $i18n.getText("com.addteq.confluence.plugin.officeadmin.user-profile.status.text")
+        </aui-label>
+        <aui-toggle id="userProfileModule" style="margin-left: 10px"
+            label="$enableOrDisable $i18n.getText("com.addteq.confluence.plugin.officeadmin.user-profile.status.text")"
+            tooltip-on="User Profile is Enabled"
+            tooltip-off="User Profile is Disabled"
+            $checkedHtml
+        </aui-toggle>
+    </div>
+    <div style="display:inline-block; text-align:center; margin-left:10px;">
+        $enableOrDisable
+    </div>
+</form>
+
+#end
+</body>
+</html>

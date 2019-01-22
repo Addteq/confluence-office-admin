@@ -1,0 +1,19 @@
+.powerGroupPage.ui-autocomplete,.floorPlanSearch.ui-autocomplete{
+    max-width: 250px !important;
+    overflow: hidden;
+    z-index: 10001 !important;
+}
+.powerGroupPage li,.floorPlanSearch li{
+    color: #333;
+    height: 24px;
+    line-height: 24px;
+    padding: 0;
+    margin: 2px 0;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.powerGroupPage .ui-state-hover,.floorPlanSearch .ui-state-hover{
+    background-color: #3b73af !important;
+    color: #fff !important;
+}

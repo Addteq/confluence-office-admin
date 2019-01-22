@@ -1,0 +1,48 @@
+#photoo {
+	width: 250px;
+	height: 250px;
+	float: left;
+	margin-right: 15px;
+	overflow: visible;
+}
+
+.userPicture {
+	width: 250px;
+	height: auto;
+  border:1px solid;
+	border-color:#AFAAAA;
+}
+
+#all-info{
+	overflow: hidden;
+}
+#aboutMeDiv{
+	border:1px solid;
+	border-color:#AFAAAA;
+	padding: 5px;
+}
+#userDetailsTable{
+	border:0px;
+	width:400px;
+}
+
+#shareButtonDiv{
+	overflow: hidden;
+}
+
+#popupLink{
+	float: right;
+}
+
+.boldfont{
+	font-weight:bold;
+}
+
+#profile-about-me-content{
+	margin-top: 10px;
+	min-height:400px;
+
+}
+#userProfileBtnContainer{
+    margin-left:7%;
+}

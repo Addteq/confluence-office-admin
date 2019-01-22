@@ -1,0 +1,20 @@
+{
+  "name": "confluence-user-profile-util",
+  "version": "0.0.1",
+  "description": "Helper script to sync network share or directory containing avatar and large pictures with Confluence",
+  "main": "sync-pics.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Addteq",
+  "license": "Commercial",
+  "dependencies": {
+    "async": "^0.9.0",
+    "findit": "^2.0.0",
+    "gm": "^1.17.0",
+    "hashtable": "^0.5.2",
+    "mkdirp": "^0.5.0",
+    "request": "^2.51.0",
+    "winston": "^0.8.3"
+  }
+}

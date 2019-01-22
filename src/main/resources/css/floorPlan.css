@@ -1,0 +1,298 @@
+/*Cog Icon css*/
+cfp-cogIcon {
+    width: 30px;
+    height: 30px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .cfp-cogIcon span{
+        margin-left:-5px;
+    }
+}
+/*Search box*/
+#s2id_userSearch > .select2-choices {
+    border: 1px solid #ebecf0;
+}
+/*All buttons toggle, zoom out, zoom in and cog wheel*/
+.cfp-buttons {
+    font-size: 16px;
+}
+#officeAdminAuiMessage,#moreThanOneMacroError{
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width : 530px;
+    top: 10%;
+    z-index: 3010;
+}
+#noteform .contents {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 20px;
+}
+#noteform h2{
+    border-bottom: 1px solid #cccccc;
+    margin: -7px 0 11px 0;
+    padding: 0 0 12px 0;
+}
+
+#noteform .arrow {
+    position: absolute;
+    height: 16px; /* for SVG positioning */
+    top: -7px; /* matches #inline-dialog-shim */
+    width: 16px; /* for SVG positioning */
+    width: 1px;
+}
+
+#noteform .arrow::after,#noteform .arrow::before {
+    border-color: #ccc transparent;
+    border-style: solid;
+    border-width: 0 8px 8px;
+    content: "";
+    left: -8px;
+    position: absolute;
+}
+
+#noteform .arrow:after {
+    border-bottom-color: #fff;
+    top: 1px;
+}
+
+.selectArea {
+    background-image: url("images/selectArea.png");
+    background-size: contain;
+    background-color: #3572B0;
+    display: inline-block;
+    opacity: 0.85;
+}
+
+.taggedList {
+    background-image: url("images/taggedList.png");
+    background-size: contain;
+    /*background-color: #3572B0;*/
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.ripple{
+  display:block;
+  border-radius:0%;
+  -ms-animation:rip 2s infinite linear;
+  -webkit-animation:rip 2s infinite linear;
+  -moz-animation:rip 2s infinite linear;
+  animation:rip 2s infinite linear;
+}
+
+.avatarSizeSelect{
+  background-image: url("images/defaultProfilePic.png");
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.ripple{
+  position:absolute;
+}
+@keyframes rip 
+{
+  0%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent;
+  }
+  5%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 rgba(255,255,255,255),
+               0 0 0 0 transparent,
+               0 0 0 0 rgba(32,80,129,2);
+  }
+  100% {
+    box-shadow:0 0 0 100px transparent,
+               0 0 0 105px transparent,
+               0 0 0 110px transparent,
+               0 0 10px 115px transparent;
+  }
+}
+@-webkit-keyframes rip 
+{
+  0%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent;
+  }
+  5%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 rgba(255,255,255,255),
+               0 0 0 0 transparent,
+               0 0 0 0 rgba(32,80,129,2);
+  }
+  100% {
+    box-shadow:0 0 0 100px transparent,
+               0 0 0 105px transparent,
+               0 0 0 110px transparent,
+               0 0 10px 115px transparent;
+  }
+}
+@-moz-keyframes rip 
+{
+  0%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent;
+  }
+  5%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 rgba(255,255,255,255),
+               0 0 0 0 transparent,
+               0 0 0 0 rgba(32,80,129,2);
+  }
+  100% {
+    box-shadow:0 0 0 100px transparent,
+               0 0 0 105px transparent,
+               0 0 0 110px transparent,
+               0 0 10px 115px transparent;
+  }
+}
+
+.closeIcon{
+    display: none;
+    position: absolute;
+    top: 7px;
+    left: 230px;
+    cursor: pointer;
+}
+
+.pancontainer{
+    position:relative; /*keep this intact*/
+    overflow:hidden; /*keep this intact*/
+    border:2px solid #ebecf0;
+    max-width: 1200px; /*Minimum width - 600px, Maximum width - 1200px*/
+    /*min-width: 600px;*/
+    height: auto;
+    border-radius: 6px;
+}
+
+.magnifyZoomIn, .magnifyZoomOut{
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+}
+
+.togglePlugin{
+    width: 30px;
+    height: 30px; 
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+ .togglePlugin span{
+    margin-left:-5px;
+ }
+}
+.on-hover-show-remove {
+    visibility: hidden;
+    position: relative;
+}
+
+.on-user-hover-show-remove {
+    display: none;
+}
+
+/*#floorPlanTaggedUserDiv{
+    display: none!important;
+}*/
+
+.deptp{
+  display: none!important;
+}
+
+.onHoverButton{
+        color: #707070;
+        width: 60px;  
+        margin-top: 1px;
+        border: 1px solid white;
+        padding: 5px;
+}
+
+.onHoverButton:hover{
+       color: #333;
+       cursor:pointer;
+       border-radius: 3.01px;
+       border: 1.5px solid #ccc;
+       border-left: 1px solid gray;
+       border-right: 1px solid gray;
+}
+
+.bottomBorderRadius{
+    border-bottom-left-radius: 3.5px !important;
+    border-bottom-right-radius: 3.5px !important;
+}
+.pancontainer button{
+    border-radius: 0px ;
+}
+.pancontainer button:first-of-type{
+    border-top-left-radius: 3.5px;
+    border-top-right-radius: 3.5px;
+}
+.pancontainer button:last-of-type{
+    border-bottom-left-radius: 3.5px;
+    border-bottom-right-radius: 3.5px;
+}
+.topBorderRadius{
+     border-top-left-radius: 3.5px !important;
+     border-top-right-radius: 3.5px !important;
+}
+
+/*CSS to change the cursor in floorplan and flowdiagram*/
+
+.tagAimCursor{
+   cursor: url("images/haircross.png") 10 10,auto;
+}
+
+.floorPlanSearch{
+    max-height: 200px;
+    overflow: auto;
+}
+.floorPlanSearch.ui-autocomplete{
+    max-width: 250px !important;
+    z-index: 10001 !important;
+}
+.floorPlanSearch li{
+    color: #333;
+    height: 24px;
+    line-height: 24px;
+    padding: 0;
+    margin: 2px 0;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.floorPlanSearch .ui-state-hover{
+    background-color: #3b73af !important;
+    color: #fff !important;
+}
+
+.floorplan-search-dropdown  img{
+    width:16px;
+    vertical-align: middle;
+}
+.floorplan-search-dropdown .select2-result-sub li{
+    padding-left: 10px;
+}
+
+.floorplan-dropdown ol{list-style : none !important;}
+
+#floor-plan-export:before, 
+#floor-plan-import:before {
+    font-size: 24px;
+    margin-top: -8px;
+    color: #3571b0;
+    cursor: pointer;
+    display: none;
+
+}
+
+.floorplan-dropdown ol li{ padding-right: 5px;}

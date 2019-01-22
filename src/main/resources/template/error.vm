@@ -1,0 +1,10 @@
+<head>
+    <title> Office Admin License Error </title>
+</head>
+<div class="aui-message aui-message-error">
+    <p class="title">
+        <strong>License Error!</strong>
+    </p>
+    <p>$licenseErrorHtml</P>
+    <p>Please check your Office Admin plugin license <a href='$req.getContextPath()/plugins/servlet/upm/manage/all#manage'>here</a>.</p>
+</div>

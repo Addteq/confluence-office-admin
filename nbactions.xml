@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <goals>
+                <goal>com.atlassian.maven.plugins:maven-amps-dispatcher-plugin:6.2.11:run</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <goals>
+                <goal>com.atlassian.maven.plugins:maven-amps-dispatcher-plugin:6.2.11:debug</goal>
+            </goals>
+        </action>
+    </actions>

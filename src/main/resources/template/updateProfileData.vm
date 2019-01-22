@@ -1,0 +1,96 @@
+#requireResourcesForContext("com.addteq.officeadmin.admin-resources")
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Update Plugin Data</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function showSuccessMessage(){
+                jQuery('#updateProfileDataNotification').find('.updateInProgressMessage').remove();
+                AJS.messages.success("#updateProfileDataNotification",
+                                 {
+                                     body: 'User Profile Plugin data is up to date..',
+                                     closeable: false,
+                                     title: 'Success!',
+                                     fadeout: true,
+                                     delay: 3000,
+                                     duration: 500
+                                 });
+                 setTimeout(function(){ window.location.reload(); }, 3000);
+            }
+            function checkUpdateStatus(){
+                    jQuery.ajax({
+                        url: AJS.params.contextPath + "/rest/userProfile/1.0/admin/getUpdateStatus",
+                        type: "GET",
+                        dataType: "text",
+                        success: function (data) {
+                              jQuery('#updateProfileDataNotification').find('.updateInProgressMessage').html("Update is in progress..<b>"+data+" %</b> completed.").show();
+                              if(data>=100){
+                                showSuccessMessage();
+                              }
+                        }
+                    });
+            }
+            function checkUpdateIsInProgress(){
+                jQuery.ajax({
+                        url: AJS.params.contextPath + "/rest/userProfile/1.0/admin/checkUpdateIsInProgress",
+                        type: "GET",
+                        dataType: "text",
+                        success: function (data) {
+                                    if(data=="true"){
+                                        checkUpdateStatus();
+                                        setInterval(function(){ checkUpdateStatus() }, 3000);
+                                    }else{
+                                        jQuery('#updateProfileDataNotification').find('.updateInProgressMessage').hide();
+                                        jQuery('#updateProfileDataNotification').find('.updateInfoMessage').show();
+                                    }
+                        }
+                });
+            }
+            function checkUpdateIsInProgressOnButtonClick(){
+                jQuery.ajax({
+                        url: AJS.params.contextPath + "/rest/userProfile/1.0/admin/checkUpdateIsInProgress",
+                        type: "GET",
+                        dataType: "text",
+                        success: function (data) {
+                                    if(data=="true"){
+                                        checkUpdateStatus();
+                                        setInterval(function(){ checkUpdateStatus() }, 5000);
+                                    }else{                                      
+                                        showSuccessMessage();
+                                    }
+                        }
+                });
+            }
+            AJS.toInit(function(){
+                checkUpdateIsInProgress();
+                jQuery("body").on("click", "#updateProfileDataBtn", function(event){
+                        jQuery('#updateProfileDataNotification').find('.updateInfoMessage').hide();
+                        jQuery('#updateProfileDataNotification').find('.updateInProgressMessage').show();
+                        jQuery.ajax({
+                            url: AJS.params.contextPath + "/admin/oa/updatePluginData.action",
+                            type: "GET",
+                            success: function (data) {
+                                    checkUpdateIsInProgressOnButtonClick();
+                            }
+                        });
+                });
+            });            
+        </script>
+        <br>
+        <div id="updateProfileDataNotification">
+            <div class="aui-message aui-message-info info  shadowed updateInfoMessage" style="display:none">
+            <p class="title"><strong>Update data notification!</strong></p>
+                When you first install this plugin, any information already existing in default Confluence user profiles (such as a user's phone number) is not automatically imported into the new fields created by the Office Admin plugin. This action will import that pre-existing profile data. This process may take <b id="estimatedTime">several minutes</b> to complete.
+                <form name="updatePluginData" method="POST" class="aui">
+                    <input type="button" id="updateProfileDataBtn" class="aui-button" value="Update"/>
+                </form>
+            </div>
+            <div class="aui-message aui-message-info info  shadowed updateInProgressMessage" style="display:none">
+                <p class="title"><strong>Update is in progress..</strong></p>
+            </div>
+        </div>
+    </body>
+</html>

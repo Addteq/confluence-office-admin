@@ -1,0 +1,16 @@
+/*Required for notification.js*/
+.adt-aui-msg{
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width : 330px;
+    top: 10%;
+    z-index: 3010;
+    width: fit-content;
+}
+.adt-aui-msg, .adt-aui-msg-warning{
+    max-width : 50%;
+    top: 10%;
+    z-index: 2000;
+}

@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'office-admin-icomoon';
+	src:url('fonts/icomoon.eot?nkdcqv');
+	src:url('fonts/icomoon.eot?#iefixnkdcqv') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?nkdcqv') format('truetype'),
+		url('fonts/icomoon.woff?nkdcqv') format('woff'),
+		url('fonts/icomoon.svg?nkdcqv#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#uploadCustomProfilePicture:hover span[class="icon-camera"]{
+	text-shadow: none;
+}
+
+#uploadCustomProfilePicture span[class="icon-camera"] {
+        color : black;
+        font-size: x-large;
+	font-family: 'office-admin-icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-shadow: 0px 0px 10px white;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#uploadCustomProfilePicture .icon-camera:before {
+	content: "\e90f";
+}
+
+@font-face {
+  font-family: "editIcon-font-1";
+  src:url("fonts/editIcon-font-1.eot");
+  src:url("fonts/editIcon-font-1.eot?#iefix") format("embedded-opentype"),
+    url("fonts/editIcon-font-1.woff") format("woff"),
+    url("fonts/editIcon-font-1.ttf") format("truetype"),
+    url("fonts/editIcon-font-1.svg#editIcon-font-1") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "editIcon-font-1" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: bolder !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,176 @@
+#formtabs{
+    display: none;
+}
+body {
+  padding-bottom: 10px;
+  position: relative;
+}
+
+#components {
+  min-height: 500px;
+}
+
+#target fieldset, #fields {  
+  min-height: 200px;
+  padding: 5px;
+  padding-bottom: 30px;
+}
+#target fieldset{
+   border: 1px solid #ccc;
+}
+#admin-content .component, #temp.form-horizontal .component{
+  cursor: pointer;
+}
+
+#admin-content input, #temp.form-horizontal input {
+  cursor: pointer;
+}
+
+#admin-content textarea, #temp.form-horizontal textarea {
+  resize: none;
+}
+
+#admin-content .popover .control-group {
+  cursor: default;
+}
+#admin-content .popover input {
+  cursor: text;
+}
+
+.temp{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  z-index: 999999;
+  top: 0;
+  overflow-x: hidden;
+  left: 0;
+}
+
+.temp form {
+  padding: 8px 4px;
+  border: 1px dotted #ccc;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 0px 30px #999;
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  overflow: hidden;
+}
+
+#render{
+  min-height: 500px;
+  font-family: monospace;
+}
+
+/* Popovers now are appended to their parent rather
+than to the body/main document as they once were.
+We need to over-ride some inherited stuff.. */
+#admin-content form .popover .controls {
+  margin-left: 0;
+}
+
+#admin-content form .popover .control-label {
+  text-align: left;
+}
+
+#admin-content form .popover form {
+  width: 224px;
+}
+
+#admin-content .popover-content form .btn{
+  margin-right: 10px
+}
+
+#admin-content .target:after{
+  float:left;
+  content: " ";
+  height: 77px; 
+  margin-top: 3px;
+  background: #205081;
+  width: 100%;
+  border: 1px dashed #ccc;
+}
+
+#target, #input, #radioscheckboxes, #select, #buttons {
+ -webkit-touch-callout: none;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+}
+
+#admin-content #target fieldset{
+ width: 100%;
+ overflow: hidden;
+}
+
+/* change color of  form fields border on focus inside the popup */
+#admin-content #target input.field:focus {
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+
+#admin-content #target textarea.field:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+
+#admin-content #target select.field:focus{
+  border: 1px solid #707070;
+}
+
+/* change color of drag and drop fields on focus - fields on the right side */
+#admin-content #textarea:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+
+#admin-content #textinput:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+
+#admin-content #appendedtext:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+#admin-content #date:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+
+/* change color of form fields on focus - form fields on the left side */
+#admin-content #target div.controls > input:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+#admin-content #target div.controls > textarea:focus{
+  border-color: #707070;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px 1px #707070;
+}
+
+#admin-content #labelDragNDrop{
+  margin-left:106px;
+  margin-bottom:-20px
+}
+
+#admin-content form#target div.component div.control-group{
+  margin-left:-50px;
+}
+
+#temp.form-horizontal{
+    padding-top:20px;
+    padding-bottom: 20px;
+    padding-right:40px;
+    padding-left:40px;
+}

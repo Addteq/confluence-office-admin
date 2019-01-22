@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="atlassian-licensing-enabled">true</param>
+    </plugin-info>
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="customuserprofile"/>
+    <!-- making image resource global so it can be used for macro icons -->
+    <resource type="download" name="images/" location="/images"/>
+    <!-- import from the product container -->
+    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
+    <web-resource key="user-profile-resource-userprofile-1" name="customuserprofile Web Resources">
+        <dependency>confluence.web.resources:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-date-picker</dependency>
+        <resource type="download" name="images/" location="/images"/>
+        <resource type="download" name="fonts/" location="/fonts"/>
+        <resource type="download" name="timeago.js" location="/js/formbuilder/timeago.js"/>
+        <resource type="download" name="powerGroupFunctionality.js" location="/js/powerGroupFunctionality.js"/>
+        <resource type="download" name="userProfilePageForm.js" location="/js/formbuilder/userProfilePageForm.js"/>
+        <resource type="download" name="images/imagePlaceholder.png" location="/images/imagePlaceholder.png"/>
+        <resource type="download" name="viewUserProfile.css" location="/css/viewUserProfile.css"/>
+        <resource type="download" name="style.css" location="/css/style.css"/>
+        <resource type="download" name="jquery.Jcrop.min.css" location="/css/jquery.Jcrop.min.css"/>
+        <resource type="download" name="jquery.Jcrop.min.js" location="/js/jquery.Jcrop.min.js"/>
+        <resource type="download" name="uploadNewProfilePic.js" location="/js/uploadNewProfilePic.js"/>
+        <resource type="download" name="userProfile.js" location="/js/floorplan/userProfile.js"/>
+        <resource type="download" name="linkify.js" location="/js/linkify.js"/>
+        <resource type="download" name="linkify-jquery.js" location="/js/linkify-jquery.js"/>        
+        <dependency>confluence.web.resources:ajs</dependency>
+        <!-- depends on jQuery/AJS -->
+        <dependency>confluence.web.resources:jquery</dependency>
+        <context>atl.userprofile</context>
+    </web-resource>
+    <web-resource key="user-profile-main-built-resource-admin" name="Main Built Admin section">
+        <resource type="download" name="main-built.js" location="/js/formbuilder/main-built.js"/>
+    </web-resource>
+    <web-resource key="user-profile-resource-admin" name="customuserprofile Admin section">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:jquery-ui-other</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-date-picker</dependency>
+        <dependency>com.atlassian.auiplugin:aui-experimental-progress-indicator</dependency>
+        <resource type="download" name="timeago.js" location="/js/formbuilder/timeago.js"/>
+        <resource type="download" name="require.js" location="/js/formbuilder/require.js"/>
+        <resource type="download" name="jquery.Jcrop.min.css" location="/css/jquery.Jcrop.min.css"/>
+        <resource type="download" name="jquery.Jcrop.min.js" location="/js/jquery.Jcrop.min.js"/>
+        <resource type="download" name="uploadNewProfilePic.js" location="/js/uploadNewProfilePic.js"/>
+        <resource type="download" name="images/ajaxSpinner.gif" location="/images/ajaxSpinner.gif"/>
+        <resource type="download" name="formBuilderOperations.js" location="/js/formbuilder/formBuilderOperations.js"/>
+        <resource type="download" name="userProfilePageForm.js" location="/js/formbuilder/userProfilePageForm.js"/>
+        <resource type="download" name="viewUserProfile.css" location="/css/viewUserProfile.css"/>
+        <resource type="download" name="updatePluginData.js" location="/js/updatePluginData.js"/>
+        <dependency>confluence.web.resources:ajs</dependency>
+        <!-- depends on jQuery/AJS -->
+        <dependency>confluence.web.resources:jquery</dependency>
+        <context>com.addteq.officeadmin.admin-resources</context>
+    </web-resource>
+    
+    <!-- This resource is separated from the web-resource `user-profile-resource-admin` to fix: PLUG-5670 -->
+    <web-resource key="user-profile-power-user" name="User profile power user configuration">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:jquery-ui-other</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <resource type="download" name="js/powerGroupConfiguration.js" location="/js/powerGroupConfiguration.js"/>
+        <resource type="download" name="css/powerGroupConfiguration.css" location="/css/powerGroupConfiguration.css"/>
+        <!--<dependency>confluence.web.resources:ajs</dependency>-->
+        <!-- depends on jQuery/AJS -->
+        <!--<dependency>confluence.web.resources:jquery</dependency>-->
+        <context>com.addteq.officeadmin.admin-resources</context>
+    </web-resource>
+    
+    <web-resource key="bootstrap-resource-admin" name="customuserprofile Bootstrap Page">
+        <resource type="download" name="bootstrap.min.css" location="/css/bootstrap.min.css"/>
+        <resource type="download" name="custom.css" location="/css/custom.css"/>
+    </web-resource>
+    <web-resource key="user-profile-resource-general-admin-v-1.0" name="customuserprofile people directory">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>confluence.web.resources:ajs</dependency>
+        <!-- depends on jQuery/AJS -->
+        <resource type="download" name="confluencePeopleProfile.js" location="/js/confluencePeopleProfile.js"/>
+        <resource type="download" name="jquery.pagination.js" location="/js/jquery.pagination.js"/>
+        <context>atl.general</context>
+        <context>com.addteq.officeadmin.admin-resources</context>
+    </web-resource>
+    <web-resource key="user-profile-resource-userprofile-admin" name="customuserprofile editprofile page">
+        <resource type="download" name="editUserProfile.css" location="/css/editUserProfile.css"/>
+        <context>atl.userprofile</context>
+        <context>com.addteq.officeadmin.admin-resources</context>
+    </web-resource>
+    <web-resource key="manage-plugin-modules" name="Manage Plugin Modules">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>confluence.web.resources:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-toggle</dependency>
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+        <resource type="download" name="managePluginModule.js" location="/js/admin/managePluginModule.js"/>
+        <context>com.addteq.officeadmin.admin.manage-module-resources</context>
+    </web-resource>
+
+    <!-- xwork action for handling new people link click -->
+    <xwork name="userprofile" key="userprofile">
+        <package name="newpeopledirPackage" extends="default" namespace="/plugins/newpeopledir">
+            <default-interceptor-ref name="defaultStack"/>
+            <action name="newpeopledir" class="com.addteq.confluence.plugin.userprofile.action.NewPeopleDirAction">
+                <result name="success" type="velocity">/template/NewPeopleDir.vm</result>
+                <result name="nativePeopleDirectory" type="redirect">/browsepeople.action#fallback</result>
+            </action>
+        </package>
+        <package name="users1" extends="default" namespace="/plugins/userprofile">
+            <default-interceptor-ref name="defaultStack"/>
+            <action name="saveuserinfo" class="com.addteq.confluence.plugin.userprofile.action.SaveUserProfileNativeFields"></action>
+        </package>
+    </xwork>
+    <xwork name="Office Admin Action" key="Office-Admin-Action">
+        <package name="oa" extends="default" namespace="/admin/oa">
+            <default-interceptor-ref name="defaultStack"/>
+            <action name="view" class="com.addteq.confluence.plugin.userprofile.action.Configure">
+                <result name="success" type="velocity">/template/configureView.vm</result>
+                <result name="error" type="velocity">/template/licenseError.vm</result>
+            </action>
+            <action name="powergroup" class="com.addteq.confluence.plugin.userprofile.action.PowerGroupConfigure">
+                <result name="success" type="velocity">/template/configurePowerGroup.vm</result>
+                <result name="error" type="velocity">/template/licenseError.vm</result>
+            </action>
+            <action name="updatePluginDataConf" class="com.addteq.confluence.plugin.userprofile.action.UpdatePluginDataConf">
+                <result name="success" type="velocity">/template/updateProfileData.vm</result>
+                <result name="error" type="velocity">/template/licenseError.vm</result>
+            </action>
+            <action name="updatePluginData" class="com.addteq.confluence.plugin.userprofile.action.UpdatePluginData">
+                <result name="success" type="velocity">/template/updateProfileData.vm</result>
+            </action>
+            <action name="moduleManager" class="com.addteq.confluence.plugin.userprofile.action.ModuleManager">
+                <result name="success" type="velocity">/template/managePluginFeatures.vm</result>
+                <result name="error" type="velocity">/template/error.vm</result>
+            </action>
+            <action name="enableOrDisableUserProfile" class="com.addteq.confluence.plugin.userprofile.action.EnableOrDisableUserProfile">
+                <result name="success" type="velocity">/template/managePluginFeatures.vm</result>
+                <result name="error" type="velocity">/template/error.vm</result>
+            </action>
+        </package>
+    </xwork>
+    <web-section name="Office Admin Menu Section" i18n-name-key="oa.name" key="oa" location="system.admin" weight="10">
+        <description key="oa.description">The Office Admin Plugin</description>
+        <label key="configureform-admin-section.label"/>
+    </web-section>
+    <web-item name="Manage Revisions" section="system.admin/oa" weight="500" key="manage_revisions">
+        <description>Configuration</description>
+        <label key="configureform-admin-web-item.name"/>
+        <link linkId="manage-revisions">/admin/oa/view.action</link>
+    </web-item>
+    <web-item name="User Profile Permissions" section="system.admin/oa" weight="501" key="UserProfilePermissions">
+        <description>Permissions</description>
+        <label key="permission-admin-web-item.name"/>
+        <link linkId="manage-permissions">/admin/oa/powergroup.action</link>
+    </web-item>
+    <web-item name="User Profile Update data" section="system.admin/oa" weight="502" key="UserProfileUpdateData">
+        <description>Update Profile Plugin</description>
+        <label key="update-plugin-data-item.name"/>
+        <link linkId="update-plugin-data">/admin/oa/updatePluginDataConf.action</link>
+    </web-item>
+    <web-item name="Office Admin Module Manager" section="system.admin/oa" weight="503" key="Office-Admin-Module-Manager">
+        <description>Provides a place to enable/disable features of the Office Admin Plugin</description>
+        <label key="Office-Admin-Module-Manager.name"/>
+        <link linkId="Office-Admin-Module-Manager">/admin/oa/moduleManager.action</link>
+    </web-item>
+    <component-import key="ao" name="Active Objects service" interface="com.atlassian.activeobjects.external.ActiveObjects">
+        <description>Component to access Active Objects functionality from the plugin</description>
+    </component-import>
+    <ao key="ao-module">
+        <description>The module configuring the Active Objects service used by this plugin</description>
+        <entity>com.addteq.confluence.plugin.userprofile.db.FormBuilderDB</entity>
+        <entity>com.addteq.confluence.plugin.userprofile.db.PowerGroupDB</entity>
+        <entity>com.addteq.confluence.plugin.userprofile.db.FormFieldsDataDB</entity>
+        <entity>com.addteq.confluence.plugin.userprofile.db.SearchProfileDB</entity>
+        <entity>com.addteq.confluence.plugin.floorplan.AllotAreaDB</entity>
+        <entity>com.addteq.confluence.plugin.floorplan.ImageMappingDB</entity>
+        <entity>com.addteq.confluence.plugin.avatar.UserSecretDB</entity>
+    </ao>
+    <rest name="User Profile Rest Resource" i18n-name-key="userprofile-rest-resource.name" key="userprofile-rest-resource" path="/userProfile" version="1.0">
+        <description key="userprofile-rest-resource.description">User Profile Rest Resource Plugin</description>
+    </rest>
+    <rest name="User Profile Rest Resource" i18n-name-key="userprofile-rest-resource.name" key="userprofile-poweruser-rest-resource" path="/userProfile/poweruser" version="1.0">
+        <description key="userprofile-rest-resource.description">User Profile Rest Resource Plugin</description>
+    </rest>
+    <web-resource key="floorplan-resources3" name="floorplan Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>confluence.web.resources:ajs</dependency>
+        <dependency>confluence.web.resources:jquery</dependency>
+        <dependency>com.atlassian.auiplugin:dialog2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
+        <dependency>com.atlassian.auiplugin:aui-experimental-iconfont</dependency>
+        <resource type="download" name="disableQuickPage.js" location="/js/floorplan/disableQuickPage.js"/>
+        <resource type="download" name="floorPlan.css" location="/css/floorPlan.css"/>
+        <resource type="download" name="imgnotes.css" location="/css/imgnotes.css"/>
+        <resource type="download" name="floorPlan.js" location="/js/floorplan/floorPlan.js"/>
+        <resource type="download" name="jquery.hoverIntent.js" location="/js/floorplan/jquery.hoverIntent.js"/>
+        <resource type="download" name="fonts/" location="/fonts"/>
+        <resource type="download" name="style.css" location="/css/style.css"/>
+        <resource type="download" name="jquery.imgareaselect-0.4.js" location="/js/floorplan/jquery.imgareaselect-0.4.js"/>
+        <resource type="download" name="jquery.imgnotes-0.2.js" location="/js/floorplan/jquery.imgnotes-0.2.js"/>
+        <resource type="download" name="imagepanner.js" location="/js/floorplan/imagepanner.js"/>
+        <resource type="download" name="notification.css" location="/css/util/notification.css"/>
+        <resource type="download" name="notification.js" location="/js/util/notification.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>page</context>
+    </web-resource>
+    <web-resource key="floorplan-editor-resources2" name="floorplan Editor Web Resources">
+        <resource type="download" name="floorPlanEditor.js" location="/js/floorplan/floorPlanEditor.js"/>
+        <resource type="download" name="editor/" location="/editor"/>
+        <dependency>com.atlassian.confluence.tinymceplugin:editor-resources</dependency>
+        <context>editor</context>
+    </web-resource>
+    
+    
+    <rest name="Floorplan Rest Resource" i18n-name-key="floorplan-rest-resource.name" key="floorplan-rest-resource" path="/floorplan" version="1.0">
+        <description key="my-rest-resource.description">The My Rest Resource Plugin</description>
+    </rest>
+    <macro name="floorplan" class="com.addteq.confluence.plugin.floorplan.FloorPlanMacro" key="floorplan-macro"></macro>
+    <xhtml-macro name="floorplan" class="com.addteq.confluence.plugin.floorplan.FloorPlanMacro" key="floorplan-macro-xhtml"
+                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/floorplanIcon.png">
+        <parameters>
+        	<parameter name="showallrecords" type="boolean"/>
+        </parameters>
+    </xhtml-macro>
+    <macro name="flowdiagram" class="com.addteq.confluence.plugin.floorplan.FlowDiagramMacro" key="flowdiagram-macro"></macro>
+    <xhtml-macro name="flowdiagram" class="com.addteq.confluence.plugin.floorplan.FlowDiagramMacro" key="flowdiagram-macro-xhtml"
+                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/flowDiagramIcon.png">
+        <parameters>
+        	<parameter name="showallrecords" type="boolean"/>
+        </parameters>
+    </xhtml-macro>
+    <component-import key="pluginAccessor" interface="com.atlassian.plugin.PluginAccessor"/>
+    <component-import key="pluginController" interface="com.atlassian.plugin.PluginController"/>
+    <component-import key="txTemplate" interface="com.atlassian.sal.api.transaction.TransactionTemplate"/>
+    <component-import key="templateRenderer" interface="com.atlassian.templaterenderer.TemplateRenderer"/>
+    <component-import key="pluginSettingsFactory" interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory"/>
+    <component-import key="loginUriProvider" interface="com.atlassian.sal.api.auth.LoginUriProvider"/>
+    <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager"/>
+    <component-import key="i18nResolver" interface="com.atlassian.sal.api.message.I18nResolver"/>
+    <component-import key="pluginLicenseManager" interface="com.atlassian.upm.api.license.PluginLicenseManager" />
+    <component key="Plugin Event Listener" class="com.addteq.confluence.plugin.officeadmin.listener.PluginEventListener" system="true" public="true">
+        <description> The OfficeAdmin LifeCycleAware component</description>
+        <interface>com.atlassian.sal.api.lifecycle.LifecycleAware</interface>
+    </component>
+    <component key="allotAreaService" class="com.addteq.confluence.plugin.floorplan.AllotAreaServiceImpl" system="true" public="false">
+        <description> The OfficeAdmin allot area service component</description>
+        <interface>com.addteq.confluence.plugin.floorplan.AllotAreaService</interface>
+    </component>
+    <component key="avatarManager" class="com.addteq.confluence.plugin.avatar.AvatarManagerImpl" system="true" public="false">
+        <description>The Avatar Service Component</description> 
+        <interface>com.addteq.confluence.plugin.avatar.AvatarManager</interface>
+    </component>
+    <component key="moduleManagerService" class="com.addteq.confluence.plugin.officeadmin.service.ModuleManagerServiceImpl" system="true" public="false">
+        <description>Manage Office Admin Modules and allow user to enable/disable from Admin Screen.</description>
+        <interface>com.addteq.confluence.plugin.officeadmin.service.ModuleManagerService</interface>
+    </component>
+    <!--=============================================================================================================
+    = This filters all the rest calls made to enable/disable Live Editing whose URL pattern is */module-manager/* ==
+    = This filter can be used for any rest calls which need authorization check as Confluence System Admin. To add ==
+    = more such rest api ADD one more <url-pattern> under this servlet-filter.
+    ==============================================================================================================-->
+    <servlet-filter name="Admin Authorization Filter" i18n-name-key="com.addteq.confluence.plugin.officeadmin.filter.admin-authorization"
+                    key="admin-authorization-filter" location="before-dispatch"
+                    class="com.addteq.confluence.plugin.officeadmin.filter.AuthorizationFilter" weight="100">
+        <description key="com.addteq.confluence.plugin.officeadmin.filter.admin-authorization.desc">
+            Confluence System Admin Authorization Filter for all the API calls
+        </description>
+        <url-pattern>*/floorplan/*/module-manager/userprofile/*</url-pattern>
+    </servlet-filter>
+</atlassian-plugin>

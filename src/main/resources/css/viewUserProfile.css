@@ -1,0 +1,49 @@
+#profilePicPlaceholder{
+    background: url("images/imagePlaceholder.png");
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position-x: 45%;
+    margin-left: 1%;
+    height: 400px !important;
+    width: 400px;
+}
+
+.userPicture{
+    width: auto;
+    max-width: 753px;
+    height: auto !important;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.75);
+}
+.profile-info,.profile-main, #user-profile,form[name="editUser"]{
+    display: none !important;
+}
+
+#editCustomProfile span{
+    margin-right: 7px;
+}
+
+.office-admin-profile-pic-container{
+    width: 300px !important;
+}
+
+#undo span, #delete span{
+    color : #707070;
+}
+#undo, #delete{
+    float:right;
+}
+
+#multipleUserProfileWarning{
+    position: fixed;
+    z-index : 99999999;
+    top     : 9%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding : 20px 70px 20px 60px;
+}

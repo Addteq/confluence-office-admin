@@ -1,0 +1,114 @@
+.note {
+    border: 1px none steelblue;
+    overflow: hidden; 
+    position: absolute; 
+    z-index: 10;
+    cursor: default;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.notep {
+    display: none; 
+    background: steelblue; 
+    font-size: 8pt; 
+    color: white;
+    margin-top: 0px; 
+    padding: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    width: auto;
+    cursor: text;
+} 
+.dept {   
+    background: url(images/areaTransparent.png);
+    background-repeat: no-repeat;
+    background-position: 2px 2px, 1%;
+    /*overflow: hidden;*/ 
+    position: absolute; 
+    z-index: 0;
+    cursor: text;
+    font-weight: bold;
+    color:#000;
+    cursor: default;
+}
+
+/* Icon in the Dialog Box that pops up when the list in the floorplan is clicked*/
+.deptIcon {
+    background: url(images/area.png);
+    background-repeat: no-repeat;
+}
+
+.deptp {
+    background: #1abc9c;
+    font-size: 8pt; 
+    color: white;
+    margin-top: 0px; 
+    padding: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    width: auto;
+    cursor: text;
+}
+#noteform {
+    display: none;
+    position: absolute;
+    width: 400px;
+}
+form#allotAreaForm .field-group{
+    padding: 4px 0 4px 100px !important;
+}
+.add-note-fieldset {
+    padding: 3px;
+}
+.allotedAreaTextbox, .resourceUrlTextbox {
+    padding: 0px;
+    width: 98%;
+    margin: 0px;
+    height: 25px;
+}
+
+.room {
+    background: url(images/resourceTransparent.png);
+    background-position: 2px 2px, 1%;
+    background-repeat: no-repeat;
+    /*overflow: hidden;*/ 
+    position: absolute; 
+    z-index: 20;
+    cursor: default;
+    font-weight: bold;
+    color:#000;
+    /*border: 10px  #000 !important;*/
+}
+
+.roomIcon {
+   background: url(images/resource.png);
+   background-repeat: no-repeat;
+}
+
+.roomp {
+    display: none; 
+    font-size: 8pt; 
+    color: black;
+    margin-top: 0px; 
+    padding: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    width: auto;
+    cursor: text;
+    z-index: 40;
+}
+
+.black-editIcon {
+    color:black;
+    text-shadow: -1px 0px 2px white;
+}
+
+.white-editIcon {
+    color:white;
+    text-shadow: 0px 0px 3px black;
+}

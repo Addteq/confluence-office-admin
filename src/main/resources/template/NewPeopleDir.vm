@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <title>
+      People Directory
+  </title>
+  <meta name="decorator" content="atl.general" />
+  </head>
+  
+  <body>
+    <div class="aui-page-panel">
+      <div class="aui-page-panel-inner">
+        <div class="aui-page-panel-nav">
+          <nav class="aui-navgroup aui-navgroup-vertical">
+            <div class="aui-navgroup-inner">
+              <ul class="aui-nav">
+                <li class="new-active-tab">
+                  <a href="$req.getContextPath()/plugins/newpeopledir/newpeopledir.action">
+                    All People
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <section class="aui-page-panel-content">
+          <div class="greybox">
+#if($licenseErrorHtml.trim() != "")
+    #set($peopleListHtml = $licenseErrorHtml)
+    <script>
+            jQuery(document).ready(function(){
+                jQuery('#people-search,.pagination').remove();
+            });
+    </script>
+#end
+#if($searchPeopleDataCount == 0 && $licenseErrorHtml=="")
+<div id="updateProfileDataNotification">
+    <div class="aui-message aui-message-info info  shadowed updateInfoMessage">
+            <p class="title"><strong>Update data notification!</strong></p>
+                When you first install this plugin, any information already existing in default Confluence user profiles (such as a user's phone number) is not automatically imported into the new fields created by the Office Admin plugin. This action will import that pre-existing profile data. This process may take <b id="estimatedTime">several minutes</b> to complete.
+                <form name="updatePluginData" method="POST" action="$req.getContextPath()/admin/oa/updatePluginDataConf.action" class="aui">
+                    <input type="submit" id="updateProfileDataBtn" class="aui-button" value="Update"/>
+                </form>
+    </div>
+</div>
+#end
+            <div class="greyboxfilled" id="people-search-title-bar" style="display: inline;" >
+              <form name="peoplesearch" method="POST" action="newpeopledir.action" id="people-search" class="aui" style="padding-top: 10px;">
+#if(!$queryString)
+    #set( $queryStringTemp="" )
+#else
+    #set( $queryStringTemp=$queryString )
+#end
+                <input id="queryString" name="queryString" type="text" size="30" placeholder="Search" autocomplete="off" class="text" value="$queryStringTemp">
+                <input type="submit" name="search" class="aui-button" value="Search">
+                ##<input type="button" name="clear" class="aui-button aui-button-link" value="Clear" onclick="location.href='#Url.Action("Action", "Controller")'">
+                <a href= "newpeopledir.action">Clear</a>
+              </form>
+            </div>
+            <div id="peoplelist">
+              <div id="showAllUserDiv">
+                <div class='newpeoplesAsMacros'>
+                  $!peopleListHtml
+                </div>
+                <br style="clear: left;">
+              </div>
+            #if(!$queryString)
+                <div id="page-selection" class="pagination" >
+            #end
+
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+        <script>
+        #set($totalUsers = $action.getUsersCount())
+        #set($perPage = 40)
+        if($totalUsers > $perPage){
+            jQuery('#page-selection').bootpag({
+                total       :   Math.floor($totalUsers/$perPage +1),
+                maxVisible  :   10,
+                page        :   ${pageId},
+                contextPath :   "$req.getContextPath()"
+            }).on("page", function(event, num){
+                var newUrl=window.location.href.split('?')[0];
+                window.location.href = newUrl+'?pageId='+num;
+            });
+        }
+        </script>
+<style>
+.pagination ::before{
+    content: "" !important;
+    padding: 0px !important;
+}
+.pagination li{
+    padding: 0px !important;
+    display: inline;
+}
+
+.pagination>li>a,.pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pagination>.disabled>a,.pagination>.disabled>a:hover{
+    color: #999;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+</style>
+  </body>
+  </html>

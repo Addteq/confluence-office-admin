@@ -1,0 +1,75 @@
+#requireResourcesForContext("com.addteq.officeadmin.admin-resources")
+<html lang="en">
+  <head> 
+    <meta charset="utf-8">
+    <title>Permissions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+  <body> 
+
+                    <table class="aui" style="margin-top:10px"> 
+                        <caption> Edit Profile Permission </caption>
+                    </table>
+                    <form action="#" method="post" id="configurePowerGroupForUserForm" class="aui">
+                        <br><br>
+                        <div class="field-group">
+                            <div class="checkbox">
+                                <input type="checkbox" class="checkbox" value="true" $isEditOwnProfileChecked name="allowUserEdit" id="editOwnProfile">
+                                <label for="editOwnProfile">Allow User to edit their own profile</label>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <h2>Power User/Group:</h2>
+                    <div class="aui-message" style="line-height: 0px !important; width: 600px;">
+                        <p style="margin:0px">Power users can modify all user profile data like contact info, profile picture and other details. </p>
+                    </div>
+                        <table class="aui" style="margin-top:10px"> 
+                            <caption> Manage Power Users </caption>
+                        </table>
+                        <div id="userContainer" style="margin-top: 25px;">
+                            <form action="#" method="post" id="configurePowerGroupForUserForm" class="aui">
+                                <div class="field-group">
+                                    <label for="addUserInPowerGroup"><h4>Add User:</h4></label>
+                                    <input id="addUserInPowerGroup" class="text" placeholder="Start typing to get a list of possible matches">
+                                    <div id="userSelectDiv"></div>
+                                </div>
+                                <div class="buttons-container">
+                                    <div class="buttons">
+                                        <input class="button submit" type="submit" value="Save" id="group-save-btn1">
+                                        <a class="cancel" href="#" id="group-cancel-btn1">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <br><br>
+                            <label for="userTableContainer"><h4>Users in Power Group:</h4></label>
+                            <div id="userTableContainer" style="margin:10px;">
+                            </div>
+                        </div>
+                        <br>
+                        <table class="aui" style="margin-top:10px"> 
+                            <caption> Manage Power Groups </caption>
+                        </table>
+                        <div id="groupContainer" style="margin-top: 25px;">
+                            <form action="#" method="post" id="configurePowerGroupForGroupForm" class="aui">
+                                <div class="field-group">
+                                    <label for="addGroupInPowerGroup"><h4>Add Group:</h4></label>
+                                    <input id="addGroupInPowerGroup" class="text" placeholder="Start typing to get a list of possible matches.">
+                                    <div id="groupSelectDiv"></div>
+                                </div>
+                                <div class="buttons-container">
+                                    <div class="buttons">
+                                        <input class="button submit" type="submit" value="Save" id="group-save-btn1">
+                                        <a class="cancel" href="#" id="group-cancel-btn1">Cancel</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <br><br>
+                            <label for="groupTableContainer"><h4>Groups in Power Group:</h4></label>
+                            <div id="groupTableContainer" style="margin:10px;">
+                        </div>
+                    </div>
+</body>
+</html>
